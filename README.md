@@ -48,6 +48,13 @@ ctx clean   # 清理生成的报告
 
 ---
 
+## 📘 集成指南 (AI Integrations)
+
+想要更好地在 **Cursor**, **Claude**, **Windsurf** 等工具中使用此报告？
+请查看我们的 [**AI 助手集成指南 (GUIDE_AI.md)**](./GUIDE_AI.md)。
+
+---
+
 ## 🗺️ 未来规划
 
 - [ ] VS Code 插件：支持“保存即同步”功能。

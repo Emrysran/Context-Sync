@@ -47,6 +47,13 @@ This will generate a `context_state.md` file in your current directory.
 
 ---
 
+## 📘 Integration Guide
+
+Want to use these reports more effectively in **Cursor**, **Claude**, or **Windsurf**?
+Check out our [**AI Integration Guide (GUIDE_AI.md)**](./GUIDE_AI.md).
+
+---
+
 ## 🗺️ Roadmap
 
 - [ ] VS Code Extension for "Sync on Save".
