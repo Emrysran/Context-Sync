@@ -18,9 +18,12 @@ def get_git_diff():
         summary = result.stdout.strip()
         
         # Also get a bit of the actual diff if it's small
-        diff_content = subprocess.run(['git', 'diff', '--unified=0'], capture_output=True, text=True, check=True).stdout
-        if len(diff_content) > 1000:
+        diff_res = subprocess.run(['git', 'diff', '--unified=0'], capture_output=True, text=True, check=True)
+        diff_content = diff_res.stdout
+        if diff_content and len(diff_content) > 1000:
             diff_content = diff_content[:1000] + "\n... (diff truncated)"
+        elif not diff_content:
+            diff_content = "(No uncommitted changes)"
             
         return f"Summary:\n{summary}\n\nRecent Diffs:\n```diff\n{diff_content}\n```"
     except subprocess.CalledProcessError:
