@@ -21,42 +21,42 @@
 
 ## ✨ 核心特性
 
-- **🚀 一键快照**：一条命令抓取所有相关上下文。
-- **📋 剪贴板同步 (`--clip`)**：运行即复制，直接 `Ctrl+V` 给 AI，效率直接拉满。
+- **🚀 一键快照**：同步所有相关上下文至单个文件。
+- **📋 剪贴板同步 (`--clip`)**：运行即复制，直接 `Ctrl+V` 给 AI。
 - **🛡️ 隐私保护**：自动扫描并打码 API Key、Token 等敏感信息。
-- **🌿 Git & 终端记录**：包含未提交的代码差异和最近的执行记录，AI 能秒读你的思路。
+- **🌿 Git & 终端记录**：包含代码差异和执行记录，AI 能秒读你的思路。
 - **🤖 AI 自动导引**：报告末尾自带指令，引导 AI 快速给出下一步方案。
 
 ---
 
-## 🛠️ 安装方法
+## 🚀 快速开始 (Quick AI Sync)
 
+### 1. 安装
 ```bash
-# 克隆并进入目录
 git clone https://github.com/Emrysran/Context-Sync.git
-cd Context-Sync
+cd Context-Sync && pip install .
+```
 
-# 安装（全局运行 ctx 命令）
-pip install .
+### 2. 同步并使用
+```bash
+# 生成快照并存入剪贴板
+ctx sync --clip
+
+# 针对不同 AI 的最佳实践：
+# - Cursor: 在聊天框中使用 @Files 引用 context_state.md
+# - Claude: 将生成的 md 文件上传到 Project Knowledge
+# - ChatGPT: 直接 Ctrl+V 粘贴即可，报告末尾已自带引导 Prompt
 ```
 
 ---
 
-## 🚀 使用说明
+## 🛠️ 进阶命令
 
 ```bash
-ctx sync            # 抓取并生成报告
-ctx sync --clip     # 抓取并直接存入剪贴板 (推荐!)
 ctx sync -f x.py    # 让 AI 重点关注特定文件的全文内容
-ctx clean           # 清理生成的报告
+ctx init           # 初始化本地配置文件 (.ctx.json)
+ctx clean          # 清理生成的报告文件
 ```
-
----
-
-## 📘 集成指南 (AI Integrations)
-
-想要在 **Cursor**, **Claude**, **Windsurf** 等工具中发挥最大威力？
-请查看我们的 [**AI 助手集成指南 (GUIDE_AI.md)**](./GUIDE_AI.md)。
 
 ---
 

@@ -13,50 +13,50 @@ It captures your current development context—Git changes, file tree, environme
 When swapping between different AI tools (e.g., coding in Cursor, architecting in Claude Projects, debugging in ChatGPT), the biggest pain is repeatedly explaining "what I just did."
 
 **Context-Sync solves this in one second:**
-- **Cross-AI Compatibility**: Generates standard Markdown that works with any text-based AI assistant.
+- **Cross-AI Compatibility**: Works with any text-based AI assistant.
 - **No More Repeating Yourself**: One-click summary of your latest progress. Just paste and resume.
-- **Precision Context**: Stop AI from wandering through your entire repo; give it only the most critical, real-time data.
+- **Precision Context**: Give the AI only the most critical, real-time data.
 
 ---
 
 ## ✨ Core Features
 
-- **🚀 One-Click Snapshot**: Capture all relevant context in one command.
-- **📋 Clipboard Integration (`--clip`)**: Sync directly to your clipboard. Just `Ctrl+V` to your AI assistant.
-- **🛡️ Privacy Guard**: Automatically detects and masks API keys, Tokens, and other sensitive data.
-- **🌿 Git & Shell Context**: Includes uncommitted diffs and recent execution history so the AI can follow your logic.
-- **🤖 AI Guidance**: Built-in prompt footer to guide the AI on how to handle the provided context.
+- **🚀 One-Click Snapshot**: Sync all relevant context into a single file.
+- **📋 Clipboard Integration (`--clip`)**: Sync directly to your clipboard. Just `Ctrl+V` to your AI.
+- **🛡️ Privacy Guard**: Automatically masks API keys, Tokens, and sensitive data.
+- **🌿 Git & Shell Context**: AI follows your logic via diffs and execution history.
+- **🤖 AI Guidance**: Built-in prompt footer to guide the AI's next steps.
 
 ---
 
-## 🛠️ Installation
+## 🚀 Quick Start (AI Syncing)
 
+### 1. Install
 ```bash
-# Clone the repository
 git clone https://github.com/Emrysran/Context-Sync.git
-cd Context-Sync
+cd Context-Sync && pip install .
+```
 
-# Install (enables global 'ctx' command)
-pip install .
+### 2. Sync and Go
+```bash
+# Capture context and copy to clipboard
+ctx sync --clip
+
+# Best Practices for AI Tools:
+# - Cursor: Use @Files to reference context_state.md in chat/composer.
+# - Claude: Upload context_state.md to Project Knowledge.
+# - ChatGPT: Just Ctrl+V; the report includes a built-in guide prompt.
 ```
 
 ---
 
-## 🚀 Usage
+## 🛠️ Advanced Commands
 
 ```bash
-ctx sync            # Capture and generate report
-ctx sync --clip     # Capture directly to clipboard (Recommended!)
 ctx sync -f x.py    # Include full content of specific files
-ctx clean           # Remove generated reports
+ctx init           # Initialize local configuration (.ctx.json)
+ctx clean          # Remove generated report files
 ```
-
----
-
-## 📘 Integration Guide
-
-Want to use these reports more effectively in **Cursor**, **Claude**, or **Windsurf**?
-Check out our [**AI Integration Guide (GUIDE_AI.md)**](./GUIDE_AI.md).
 
 ---
 
