@@ -2,33 +2,41 @@
 
 [简体中文](./README.md) | [English](./README_en.md)
 
-**Context-Sync** 是一个轻量级的命令行工具，旨在解决与 AI 助手协作时的“上下文断层”问题。它可以自动捕捉你当前的开发状态——包括 Git 变更、文件结构、最近修改的文件以及终端历史记录——并将这些信息汇总到一个易于 AI 理解的 Markdown 文件中。
+**Context-Sync** 是一个极致轻量级的命令行工具，旨在打破不同 AI 助手（如 Cursor, Claude, Windsurf, ChatGPT）之间的“上下文孤岛”。
 
-别再浪费时间手动解释进度了。只需运行 `ctx sync`，让 AI 瞬间同步。
+它可以一键捕捉你当前的开发脉络——Git 变更、文件树、环境信息和终端历史——并瞬间同步给任何 AI，让它们在几秒钟内获得与你完全一致的“上帝视角”。
+
+---
+
+## 🔥 为何需要它？
+
+当你频繁在不同 AI 工具间切换时（例如：在 Cursor 里写代码，去 Claude Projects 整理架构，在 ChatGPT 调试报错），最头疼的就是重复解释“我刚才做了什么”。
+
+**Context-Sync 让你一秒解决这个问题：**
+- **横跨所有 AI**：生成的报告是标准的 Markdown，适配任何支持文本输入的 AI 助手。
+- **告别重复解释**：一键生成最新进度摘要，直接粘贴即可继续聊天。
+- **精准投喂**：避免 AI 漫无目的地读取整个仓库，只给它最关键、最实时的上下文。
 
 ---
 
 ## ✨ 核心特性
 
-- **🚀 一键快照**：一条命令抓取所有与当前任务相关的上下文信息。
-- **📂 智能文件扫描**：生成干净的项目树，自动忽略噪音（如 `node_modules`, `.git`, `.venv`）。
-- **🌿 Git 深度集成**：包含当前分支、简短状态摘要以及未提交代码的差异（Diff）分析。
-- **🖥️ 终端历史**：提取最近执行的 shell 命令（支持 Windows PowerShell 以及 Unix Bash/Zsh）。
-- **🤖 AI 自动导引**：在报告末尾自动生成针对 AI 的下一步行动建议（支持自定义 Prompt）。
-- **📝 LLM 优化**：输出格式专门为 GPT-4, Claude, Gemini 等大模型的阅读习惯进行了优化。
+- **🚀 一键快照**：一条命令抓取所有相关上下文。
+- **📋 剪贴板同步 (`--clip`)**：运行即复制，直接 `Ctrl+V` 给 AI，效率直接拉满。
+- **🛡️ 隐私保护**：自动扫描并打码 API Key、Token 等敏感信息。
+- **🌿 Git & 终端记录**：包含未提交的代码差异和最近的执行记录，AI 能秒读你的思路。
+- **🤖 AI 自动导引**：报告末尾自带指令，引导 AI 快速给出下一步方案。
 
 ---
 
 ## 🛠️ 安装方法
 
-你可以直接从本地代码库安装 `context-sync`：
-
 ```bash
-# 克隆仓库
+# 克隆并进入目录
 git clone https://github.com/Emrysran/Context-Sync.git
 cd Context-Sync
 
-# 全局安装或在虚拟环境中安装
+# 安装（全局运行 ctx 命令）
 pip install .
 ```
 
@@ -36,31 +44,19 @@ pip install .
 
 ## 🚀 使用说明
 
-安装完成后，你可以直接在任何地方的终端使用 `ctx` 命令：
-
 ```bash
-ctx init    # 初始化配置文件
-ctx sync    # 抓取当前上下文
-ctx clean   # 清理生成的报告
+ctx sync            # 抓取并生成报告
+ctx sync --clip     # 抓取并直接存入剪贴板 (推荐!)
+ctx sync -f x.py    # 让 AI 重点关注特定文件的全文内容
+ctx clean           # 清理生成的报告
 ```
-
-运行 `ctx sync` 后，当前目录下会生成一个 `context_state.md` 文件。
 
 ---
 
 ## 📘 集成指南 (AI Integrations)
 
-想要更好地在 **Cursor**, **Claude**, **Windsurf** 等工具中使用此报告？
+想要在 **Cursor**, **Claude**, **Windsurf** 等工具中发挥最大威力？
 请查看我们的 [**AI 助手集成指南 (GUIDE_AI.md)**](./GUIDE_AI.md)。
-
----
-
-## 🗺️ 未来规划
-
-- [ ] VS Code 插件：支持“保存即同步”功能。
-- [ ] 核心终端输出捕获：通过 shell hooks 捕获真实的 stdout/stderr。
-- [ ] LLM 驱动的总结：在报告开头自动生成一份“执行摘要”。
-- [ ] MCP 协议集成：直接作为 MCP Server 使用。
 
 ---
 

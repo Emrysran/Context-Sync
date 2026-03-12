@@ -2,32 +2,41 @@
 
 [简体中文](./README.md) | [English](./README_en.md)
 
-**Context-Sync** is a lightweight CLI tool designed to solve the "context gap" when working with AI assistants. It captures your current development state—Git changes, file structure, recently modified files, and terminal history—and compiles them into a single, LLM-friendly Markdown file.
+**Context-Sync** is an ultra-lightweight CLI tool designed to break down "context silos" between different AI assistants (e.g., Cursor, Claude, Windsurf, ChatGPT).
 
-Stop explaining your progress. Just `ctx sync` and let the AI catch up.
+It captures your current development context—Git changes, file tree, environment info, and terminal history—in one click and syncs it instantly to any AI, giving them the same "God view" as you in seconds.
 
 ---
 
-## ✨ Features
+## 🔥 Why Context-Sync?
 
-- **🚀 One-Click Snapshot**: Capture everything relevant to your task in one command.
-- **📂 Smart File Scanning**: Generates a clean project tree, ignoring noise (like `node_modules`, `.git`, `.venv`).
-- **🌿 Git Integration**: Includes current branch, short status, and a summarized diff of your uncommitted changes.
-- **🖥️ Terminal History**: Pulls your most recent shell commands (PowerShell support on Windows, Bash/Zsh on Unix).
-- **📝 LLM-Optimized**: Output is formatted specifically for high readability by models like GPT-4, Claude, and Gemini.
+When swapping between different AI tools (e.g., coding in Cursor, architecting in Claude Projects, debugging in ChatGPT), the biggest pain is repeatedly explaining "what I just did."
+
+**Context-Sync solves this in one second:**
+- **Cross-AI Compatibility**: Generates standard Markdown that works with any text-based AI assistant.
+- **No More Repeating Yourself**: One-click summary of your latest progress. Just paste and resume.
+- **Precision Context**: Stop AI from wandering through your entire repo; give it only the most critical, real-time data.
+
+---
+
+## ✨ Core Features
+
+- **🚀 One-Click Snapshot**: Capture all relevant context in one command.
+- **📋 Clipboard Integration (`--clip`)**: Sync directly to your clipboard. Just `Ctrl+V` to your AI assistant.
+- **🛡️ Privacy Guard**: Automatically detects and masks API keys, Tokens, and other sensitive data.
+- **🌿 Git & Shell Context**: Includes uncommitted diffs and recent execution history so the AI can follow your logic.
+- **🤖 AI Guidance**: Built-in prompt footer to guide the AI on how to handle the provided context.
 
 ---
 
 ## 🛠️ Installation
-
-You can install `context-sync` directly from the local directory:
 
 ```bash
 # Clone the repository
 git clone https://github.com/Emrysran/Context-Sync.git
 cd Context-Sync
 
-# Install the package globally or in a virtual environment
+# Install (enables global 'ctx' command)
 pip install .
 ```
 
@@ -35,15 +44,12 @@ pip install .
 
 ## 🚀 Usage
 
-Once installed, the `ctx` command will be available globally in your terminal:
-
 ```bash
-ctx init    # Initialize config file
-ctx sync    # Capture context
-ctx clean   # Clean up generated report
+ctx sync            # Capture and generate report
+ctx sync --clip     # Capture directly to clipboard (Recommended!)
+ctx sync -f x.py    # Include full content of specific files
+ctx clean           # Remove generated reports
 ```
-
-This will generate a `context_state.md` file in your current directory.
 
 ---
 
@@ -51,15 +57,6 @@ This will generate a `context_state.md` file in your current directory.
 
 Want to use these reports more effectively in **Cursor**, **Claude**, or **Windsurf**?
 Check out our [**AI Integration Guide (GUIDE_AI.md)**](./GUIDE_AI.md).
-
----
-
-## 🗺️ Roadmap
-
-- [ ] VS Code Extension for "Sync on Save".
-- [ ] Support for capturing actual terminal stdout/stderr via shell hooks.
-- [ ] LLM-powered "Executive Summary" generator.
-- [ ] Integration with MCP (Model Context Protocol).
 
 ---
 
