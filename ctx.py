@@ -1,7 +1,7 @@
 import click
 import os
 from datetime import datetime
-from collectors import git, filesystem
+from collectors import git, filesystem, terminal
 
 @click.group()
 def cli():
@@ -31,8 +31,10 @@ def sync(output):
     fs_info = filesystem.collect()
     context_sections.append(f"## Filesystem Context\n{fs_info}")
     
-    # 4. Terminal Context (Placeholder)
-    context_sections.append("\n## Terminal Context\n*Terminal history capture is coming soon...*\n")
+    # 4. Terminal Context
+    click.echo("  -> Retrieving terminal history...")
+    term_info = terminal.collect()
+    context_sections.append(f"## Terminal Context\n{term_info}")
     
     # Write to file
     with open(output, 'w', encoding='utf-8') as f:
