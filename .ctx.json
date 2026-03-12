@@ -1,0 +1,17 @@
+{
+    "output_file": "context_state.md",
+    "ignore_patterns": [
+        ".git",
+        "__pycache__",
+        ".venv",
+        "node_modules",
+        ".next",
+        "out",
+        "dist",
+        "build",
+        ".ctx"
+    ],
+    "max_depth": 2,
+    "terminal_history_limit": 15,
+    "sanitize_secrets": true
+}
