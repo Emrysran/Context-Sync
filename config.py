@@ -6,7 +6,8 @@ DEFAULT_CONFIG = {
     "ignore_patterns": [".git", "__pycache__", ".venv", "node_modules", ".next", "out", "dist", "build", ".ctx"],
     "max_depth": 2,
     "terminal_history_limit": 15,
-    "sanitize_secrets": True
+    "sanitize_secrets": True,
+    "ai_guidance_prompt": "你好 AI。以上是我目前的开发环境上下文。请根据这些 Git 差异、文件结构和终端历史记录，总结我目前正在做的事情，并建议我下一步应该做什么。"
 }
 
 def load_config():

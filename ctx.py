@@ -48,6 +48,11 @@ def sync(output):
     term_info = terminal.collect(config)
     context_sections.append(f"## Terminal Context\n{term_info}")
     
+    # 5. AI Guidance Prompt
+    ai_prompt = config.get("ai_guidance_prompt", "")
+    if ai_prompt:
+        context_sections.append(f"## AI 指引 (AI Guidance)\n> {ai_prompt}\n")
+    
     # Final aggregation and sanitization
     full_content = "\n---\n".join(context_sections)
     if config.get("sanitize_secrets", True):
