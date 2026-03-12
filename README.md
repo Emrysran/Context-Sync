@@ -21,26 +21,28 @@ Stop explaining your progress. Just `ctx sync` and let the AI catch up.
 
 ## 🛠️ Installation
 
+You can install `context-sync` directly from the local directory:
+
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/context-sync.git
-cd context-sync
+git clone https://github.com/Emrysran/Context-Sync.git
+cd Context-Sync
 
-# Install dependencies
-pip install click
+# Install the package globally or in a virtual environment
+pip install .
 ```
 
 ---
 
 ## 🚀 Usage
 
-Simply run the following command in your project root:
+Once installed, the `ctx` command will be available globally in your terminal:
 
 ```bash
-python ctx.py sync
+ctx sync
 ```
 
-This will generate a `context_state.md` file. You can then:
+This will generate a `context_state.md` file in your current directory.
 - **Copy-paste** the content into your next AI chat.
 - **Upload** the file to a "Knowledge Base" or "Project Context" in your AI IDE (like Cursor).
 

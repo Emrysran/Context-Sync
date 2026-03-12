@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-sync-cli"
+version = "0.1.0"
+authors = [
+  { name="Emrysran" },
+]
+description = "A lightweight CLI tool to capture and sync development context for AI assistants."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "click",
+]
+
+[project.scripts]
+ctx = "ctx:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["collectors*"]
+
+[tool.setuptools.py-modules]
+modules = ["ctx"]
